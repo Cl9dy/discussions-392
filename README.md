@@ -1,5 +1,7 @@
 <img width="2629" height="894" alt="image" src="https://github.com/user-attachments/assets/9b2a008e-eba2-4196-b7fc-7bc7844a946d" />
 
+Koda ustvarjena s pomočjo Claude Code
+
 # Repro for syncfusion/maui-toolkit#392
 
 `System.ObjectDisposedException: Cannot access disposed object ... Object name: 'Microsoft.Maui.Graphics.Platform.PlatformGraphicsView'`
