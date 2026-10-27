@@ -2,6 +2,12 @@
 
 Koda ustvarjena s pomočjo Claude Code
 
+
+
+https://github.com/user-attachments/assets/ed12287a-9b51-418e-bb8e-2dde591232e1
+
+
+
 # Repro for syncfusion/maui-toolkit#392
 
 `System.ObjectDisposedException: Cannot access disposed object ... Object name: 'Microsoft.Maui.Graphics.Platform.PlatformGraphicsView'`
