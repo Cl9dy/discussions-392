@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Repro38612.ChartPage"
+             Title="Graf (#392)"
+             BackgroundColor="White">
+    <Grid RowDefinitions="Auto,Auto,Auto,*">
+
+        <Label x:Name="schedulerLabel" Padding="8,8,8,0" FontSize="12" TextColor="DarkSlateGray" />
+
+        <FlexLayout Grid.Row="1" Wrap="Wrap" Padding="8" AlignItems="Center">
+            <!-- Realni scenariji -->
+            <Button x:Name="mqttGoodButton" Text="MQTT good: START" Clicked="OnMqttGood" Margin="0,0,8,4" />
+            <Button Text="MQTT bad (10 s)" Clicked="OnMqttBad" Margin="0,0,8,4" />
+            <Button Text="Os 100x" Clicked="OnAxisBurst" Margin="0,0,8,4" />
+            <Button x:Name="recreateButton" Text="Ponovno ustvarjaj graf: START" Clicked="OnRecreate" Margin="0,0,8,4" />
+            <Button Text="GC" Clicked="OnGc" Margin="0,0,8,4" />
+
+            <!-- Sintetični dokazi (glej README) -->
+            <Button Text="[A] Dispose native + posodobi" Clicked="OnSyntheticDispose" BackgroundColor="DarkOrange" Margin="0,0,8,4" />
+            <Button Text="[B] Zamrznitev: 1e16 / Interval 1" Clicked="OnPrecisionFreeze" BackgroundColor="DarkRed" Margin="0,0,8,4" />
+            <Button Text="[C] Velik razpon 0..1e9 / Interval 5" Clicked="OnHugeRange" BackgroundColor="DarkRed" Margin="0,0,8,4" />
+        </FlexLayout>
+
+        <Label x:Name="statusLabel" Grid.Row="2" Padding="8,0" FontSize="12" TextColor="Black" />
+
+        <ContentView x:Name="chartHost" Grid.Row="3" Padding="8" />
+    </Grid>
+</ContentPage>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Repro38612.ChaosPage"
+             Title="Chaos"
+             BackgroundColor="White">
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="6">
+            <Label Text="Stikala veljajo ob naslednjem 'Chaos START'. Aktivna stikala se zapišejo v log." TextColor="Black" />
+
+            <HorizontalStackLayout Spacing="8"><Switch IsToggled="{Binding GcHammer}" /><Label Text="GC kladivo" VerticalOptions="Center" TextColor="Black" /></HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="8"><Switch IsToggled="{Binding CpuBurn}" /><Label Text="CPU burn" VerticalOptions="Center" TextColor="Black" /></HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="8"><Switch IsToggled="{Binding UiFlood}" /><Label Text="Poplava na UI niti (MQTT)" VerticalOptions="Center" TextColor="Black" /></HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="8"><Switch IsToggled="{Binding FlipRight}" /><Label Text="Right null / vrednost" VerticalOptions="Center" TextColor="Black" /></HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="8"><Switch IsToggled="{Binding ReplaceRows}" /><Label Text="Nadomesti Rows" VerticalOptions="Center" TextColor="Black" /></HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="8"><Switch IsToggled="{Binding ToggleVisibility}" /><Label Text="IsVisible seznama" VerticalOptions="Center" TextColor="Black" /></HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="8"><Switch IsToggled="{Binding AutoScroll}" /><Label Text="Samodejni ScrollTo" VerticalOptions="Center" TextColor="Black" /></HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="8"><Switch IsToggled="{Binding CameraPolls}" /><Label Text="Klici kamere ob Scrolled" VerticalOptions="Center" TextColor="Black" /></HorizontalStackLayout>
+
+            <Label Text="Poskusi (po spremembi pritisnite Rebuild, ker veljajo za nove celice):" TextColor="Black" Margin="0,12,0,0" />
+            <HorizontalStackLayout Spacing="8"><Switch IsToggled="{Binding KeepAliveViews}" /><Label Text="KeepAlive (kot Hot Reload: drži reference)" VerticalOptions="Center" TextColor="Black" /></HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="8"><Switch IsToggled="{Binding CardShadow}" /><Label Text="Senca na karticah (WrapperView)" VerticalOptions="Center" TextColor="Black" /></HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="8"><Switch IsToggled="{Binding CardRoundedShape}" /><Label Text="Zaobljeni robovi (StrokeShape)" VerticalOptions="Center" TextColor="Black" /></HorizontalStackLayout>
+
+            <Label Text="SfCartesianChart (syncfusion/maui-toolkit#392):" TextColor="Black" Margin="0,12,0,0" />
+            <HorizontalStackLayout Spacing="8"><Switch IsToggled="{Binding ChartsInCells}" /><Label Text="Grafi v seznamu (po Rebuild)" VerticalOptions="Center" TextColor="Black" /></HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="8"><Switch IsToggled="{Binding ChartUpdates}" /><Label Text="MQTT posodablja grafe" VerticalOptions="Center" TextColor="Black" /></HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="8"><Switch IsToggled="{Binding ChartAxisBurst}" /><Label Text="100x Min/Max/Interval ob posodobitvi" VerticalOptions="Center" TextColor="Black" /></HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="8"><Switch IsToggled="{Binding ShellNavigate}" /><Label Text="Preklapljanje Shell strani med kaosom" VerticalOptions="Center" TextColor="Black" /></HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="8">
+                <Label Text="Min. razmik posodobitev grafa (ms):" VerticalOptions="Center" TextColor="Black" />
+                <Entry Text="{Binding ChartUpdateMinMs}" Keyboard="Numeric" WidthRequest="80" TextColor="Black" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="8">
+                <Label Text="Trajanje (s, 0 = brez omejitve):" VerticalOptions="Center" TextColor="Black" />
+                <Entry Text="{Binding DurationSeconds}" Keyboard="Numeric" WidthRequest="80" TextColor="Black" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

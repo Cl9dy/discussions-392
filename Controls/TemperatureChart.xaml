@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- BindingContext = DemoControl. Y os je enaka kot v diskusiji syncfusion/maui-toolkit#392. -->
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:chart="clr-namespace:Syncfusion.Maui.Toolkit.Charts;assembly=Syncfusion.Maui.Toolkit"
+             x:Class="Repro38612.Controls.TemperatureChart">
+
+    <chart:SfCartesianChart HeightRequest="200">
+
+        <chart:SfCartesianChart.XAxes>
+            <chart:NumericalAxis ShowMajorGridLines="False" />
+        </chart:SfCartesianChart.XAxes>
+
+        <chart:SfCartesianChart.YAxes>
+            <chart:NumericalAxis IsVisible="True"
+                                 ShowMajorGridLines="True"
+                                 ShowMinorGridLines="False"
+                                 Name="OtherData"
+                                 Minimum="{Binding TemperatureMinimum}"
+                                 Maximum="{Binding TemperatureMaximum}"
+                                 Interval="{Binding TemperatureInterval}">
+                <chart:NumericalAxis.LabelStyle>
+                    <chart:ChartAxisLabelStyle LabelFormat="0'°'" TextColor="Black" />
+                </chart:NumericalAxis.LabelStyle>
+                <chart:NumericalAxis.MinorGridLineStyle>
+                    <chart:ChartLineStyle StrokeDashArray="0" Stroke="Black" StrokeWidth="0" />
+                </chart:NumericalAxis.MinorGridLineStyle>
+            </chart:NumericalAxis>
+        </chart:SfCartesianChart.YAxes>
+
+        <chart:LineSeries ItemsSource="{Binding Points}"
+                          XBindingPath="X"
+                          YBindingPath="Y"
+                          YAxisName="OtherData"
+                          EnableAnimation="False" />
+    </chart:SfCartesianChart>
+</ContentView>
